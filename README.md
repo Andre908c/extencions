@@ -25,16 +25,12 @@
 <br />
 
 # Browser Extension Optimization 🧩
-Optimized version with **Picture-in-Picture**, **Auto-Pause**, and **Ad-Robo** engine for YouTube, Twitch, and Kick.
+The project is currently in development and is in Beta status.
 
 ### ✨ Key Features
 * 🚀 **Efficiency:** Ad-Robo engine accelerates ads by 16x.
 * 🛠️ **Universal Extractor:** Picture-in-Picture support for multiple streaming platforms.
 * 📊 **Focus Mode:** Auto-pause video when switching tabs.
-
-### 🚀 How to Install (Dev Mode)
-1. Clone the repo: `git clone https://github.com/Andre908c/extencions.git`
-2. Load the project folder in `brave://extensions/` or `chrome://extensions/`.
 
 </details>
 
@@ -42,26 +38,30 @@ Optimized version with **Picture-in-Picture**, **Auto-Pause**, and **Ad-Robo** e
 
 ---
 
-## 🚀 Sobre el Proyecto (Actualización 2025-12-30)
-Esta extensión ha evolucionado para convertirse en una consola de control total de video. Se integra directamente en los reproductores de **YouTube, Twitch y Kick** para optimizar el consumo de contenido.
+## 🚀 Sobre el Proyecto
+Esta extensión está siendo desarrollada con **React** para ofrecer una interfaz moderna y rápida. El objetivo principal es automatizar tareas repetitivas directamente desde el navegador, integrándose ahora en las barras de controles de **YouTube, Twitch y Kick**.
 
-### ✨ Características Principales (Consola Pro)
-* **Extractor Universal (PiP):** Botón integrado en la barra de controles para extraer el video a una ventana flotante gigante.
-* **Motor de ROBO:** Aceleración automática de anuncios a **x16** con silenciador (Mute) activo en YouTube y Twitch.
-* **Pausa Focus:** Detiene la reproducción automáticamente si el usuario abandona la pestaña actual.
-* **Interfaz Dinámica:** Iconos que cambian a **rojo vibrante** cuando la función está activa para un feedback inmediato.
+### ⚠️ Estado del Proyecto
+**El proyecto se encuentra en desarrollo en estado de Beta.**
+
+### ✨ Características Principales
+* **Interfaz Dinámica:** Construida totalmente con componentes de React y feedback visual en **rojo** para funciones activas.
+* **Optimización:** Ligera y diseñada para no afectar el rendimiento del navegador.
+* **Seguridad:** Manejo de datos local y seguro siguiendo el Manifest V3.
 
 ### 🛠️ Tecnologías Utilizadas
-* **React.js & JavaScript (ES6+):** Motor principal y lógica de interfaz.
-* **Manifest V3:** Cumplimiento total con los estándares modernos de seguridad.
-* **CSS3 Selectors:** Inyección precisa en componentes nativos de plataformas de streaming.
+* **React.js:** Para la lógica de la interfaz de usuario.
+* **JavaScript (ES6+):** Motor principal de la extensión.
+* **HTML5 & CSS3:** Estructura y diseño visual.
+* **Manifest V3:** Siguiendo los últimos estándares de Google Chrome.
 
 ### 🏗️ Estado del Desarrollo
-Actualmente el proyecto se encuentra en fase de **Desarrollo Activo**.
-- [x] Estructura inicial y Manifest V3.
-- [x] Integración de consola en barra de controles (YT/Twitch/Kick).
-- [x] Motor de aceleración de anuncios (Robo Engine).
-- [x] Sincronización visual de estados (Active Red).
+Actualmente el proyecto se encuentra en fase de **Desarrollo Activo (Beta)**. Estamos trabajando en:
+- [x] Estructura inicial del proyecto.
+- [x] Implementación de la UI principal en la barra de controles.
+- [x] Motor de "Robo" para aceleración de anuncios (x16).
+- [x] Función de extracción de video (Universal PiP).
+- [ ] Conexión con APIs externas.
 
 ---
 
