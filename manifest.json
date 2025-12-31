@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Escudo Global Pro",
+    "version": "4.5.0",
+    "description": "Optimización de flujo y secuestro de video reactivo para plataformas de streaming.",
+    "permissions": [
+      "storage",
+      "scripting",
+      "windows"
+    ],
+    "host_permissions": [
+      "https://*.youtube.com/*",
+      "https://*.twitch.tv/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "https://*.youtube.com/*",
+          "https://*.twitch.tv/*"
+        ],
+        "js": ["scriptlet.js"],
+        "run_at": "document_idle"
+      }
+    ]
+  }
