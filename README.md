@@ -1,7 +1,7 @@
 <div align="center">
 
 # 🧩 Extensión de Navegador Optimización
-### Proyecto de Código Abierto para la Mejora de Flujos de Trabajo
+### Proyecto de Código Abierto para la Mejora de Flujos de Trabajo (v65.0)
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -25,23 +25,16 @@
 <br />
 
 # Browser Extension Optimization 🧩
-This project is a browser extension built with **React** designed to optimize daily digital workflows.
+Optimized version with **Picture-in-Picture**, **Auto-Pause**, and **Ad-Robo** engine for YouTube, Twitch, and Kick.
 
 ### ✨ Key Features
-* 🚀 **Efficiency:** Reduces task execution time.
-* 🛠️ **Customization:** Tools adapted to user needs.
-* 📊 **Analysis:** Real-time data visualization.
-
-### 🛠️ Tech Stack
-* **Framework:** React.js
-* **Styles:** CSS3 / Tailwind (optional)
-* **Build Tool:** Vite / Webpack
+* 🚀 **Efficiency:** Ad-Robo engine accelerates ads by 16x.
+* 🛠️ **Universal Extractor:** Picture-in-Picture support for multiple streaming platforms.
+* 📊 **Focus Mode:** Auto-pause video when switching tabs.
 
 ### 🚀 How to Install (Dev Mode)
 1. Clone the repo: `git clone https://github.com/Andre908c/extencions.git`
-2. Install dependencies: `npm install`
-3. Build the project: `npm run build`
-4. Load the `dist` folder in `chrome://extensions/`.
+2. Load the project folder in `brave://extensions/` or `chrome://extensions/`.
 
 </details>
 
@@ -49,25 +42,26 @@ This project is a browser extension built with **React** designed to optimize da
 
 ---
 
-## 🚀 Sobre el Proyecto
-Esta extensión está siendo desarrollada con **React** para ofrecer una interfaz moderna y rápida. El objetivo principal es automatizar tareas repetitivas directamente desde el navegador.
+## 🚀 Sobre el Proyecto (Actualización 2025-12-30)
+Esta extensión ha evolucionado para convertirse en una consola de control total de video. Se integra directamente en los reproductores de **YouTube, Twitch y Kick** para optimizar el consumo de contenido.
 
-### ✨ Características Principales
-* **Interfaz Dinámica:** Construida totalmente con componentes de React.
-* **Optimización:** Ligera y diseñada para no afectar el rendimiento del navegador.
-* **Seguridad:** Manejo de datos local y seguro.
+### ✨ Características Principales (Consola Pro)
+* **Extractor Universal (PiP):** Botón integrado en la barra de controles para extraer el video a una ventana flotante gigante.
+* **Motor de ROBO:** Aceleración automática de anuncios a **x16** con silenciador (Mute) activo en YouTube y Twitch.
+* **Pausa Focus:** Detiene la reproducción automáticamente si el usuario abandona la pestaña actual.
+* **Interfaz Dinámica:** Iconos que cambian a **rojo vibrante** cuando la función está activa para un feedback inmediato.
 
 ### 🛠️ Tecnologías Utilizadas
-* **React.js:** Para la lógica de la interfaz de usuario.
-* **JavaScript (ES6+):** Motor principal de la extensión.
-* **HTML5 & CSS3:** Estructura y diseño visual.
-* **Manifest V3:** Siguiendo los últimos estándares de Google Chrome.
+* **React.js & JavaScript (ES6+):** Motor principal y lógica de interfaz.
+* **Manifest V3:** Cumplimiento total con los estándares modernos de seguridad.
+* **CSS3 Selectors:** Inyección precisa en componentes nativos de plataformas de streaming.
 
 ### 🏗️ Estado del Desarrollo
-Actualmente el proyecto se encuentra en fase de **Desarrollo Activo (Beta)**. Estamos trabajando en:
-- [x] Estructura inicial del proyecto.
-- [ ] Implementación de la UI principal.
-- [ ] Conexión con APIs externas.
+Actualmente el proyecto se encuentra en fase de **Desarrollo Activo**.
+- [x] Estructura inicial y Manifest V3.
+- [x] Integración de consola en barra de controles (YT/Twitch/Kick).
+- [x] Motor de aceleración de anuncios (Robo Engine).
+- [x] Sincronización visual de estados (Active Red).
 
 ---
 
