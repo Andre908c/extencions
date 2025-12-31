@@ -1,117 +1,106 @@
 (function() {
-    let modoAdActivo = false;
+    let config = { activo: true, modoAd: false, focusMode: false, roeManual: true };
 
-    // --- 1. DISEÑO MINI (300px) ---
     const inyectarCSS = () => {
-        if (document.getElementById('yt-pops-mini-css')) return;
+        if (document.getElementById('yt-player-controls-css')) return;
         const style = document.createElement('style');
-        style.id = 'yt-pops-mini-css';
+        style.id = 'yt-player-controls-css';
         style.innerHTML = `
-            ytd-video-preview, #preview.ytd-video-preview {
-                width: 300px !important; /* Tamaño muy reducido para que no estorbe */
-                height: auto !important;
-                position: fixed !important;
-                top: 50% !important;
-                left: 50% !important;
-                transform: translate(-50%, -50%) !important;
-                z-index: 2147483647 !important;
-                border: 2px solid #ff0000 !important;
-                border-radius: 8px !important;
-                background: #000 !important;
-                pointer-events: none !important;
-                display: flex !important;
-                flex-direction: column !important;
-                box-shadow: 0 0 30px rgba(0,0,0,0.6) !important;
+            /* Botones estilo nativo de YouTube para el reproductor */
+            .ytp-button.ext-player-btn {
+                display: inline-flex !important;
+                align-items: center;
+                justify-content: center;
+                width: auto !important;
+                padding: 0 10px !important;
+                font-size: 11px !important;
+                font-weight: bold !important;
+                transition: color 0.2s;
             }
+            #btn-roe-player { color: #aaa; }
+            #btn-roe-player.active { color: #ff0000; text-shadow: 0 0 8px #ff0000; }
+            
+            #btn-focus-player { color: #aaa; }
+            #btn-focus-player.active { color: #00ffcc; text-shadow: 0 0 8px #00ffcc; }
 
-            ytd-video-preview video {
-                width: 100% !important;
-                height: auto !important;
-            }
-
-            /* Bloqueo de subtítulos */
-            .ytp-caption-window-container { display: none !important; }
-
-            /* Barra inferior ultra-compacta */
-            .yt-pops-bar-mini {
-                width: 100%; height: 35px; background: #111; color: white;
-                display: flex; align-items: center; justify-content: center;
-                font-family: 'Roboto', sans-serif; border-top: 1px solid #222;
-            }
-            .mute-btn-style {
-                color: #ff0000; padding: 1px 8px; border: 1px solid #ff0000;
-                border-radius: 3px; font-size: 9px; font-weight: bold;
-                text-transform: uppercase;
-            }
+            /* Ocultar previsualización si estamos en Watch */
+            body[mode="watch"] ytd-video-preview { display: none !important; }
         `;
         document.head.appendChild(style);
     };
 
-    // --- 2. CONTROL DE AUDIO (M) ---
-    const manejarAudio = (e) => {
-        const preview = document.querySelector('ytd-video-preview');
-        if (!preview || preview.style.display === 'none') return;
-        const v = preview.querySelector('video');
-        if (!v) return;
+    // Función para inyectar en los controles del reproductor
+    const inyectarEnReproductor = () => {
+        const controlesDerecha = document.querySelector('.ytp-right-controls');
+        if (!controlesDerecha) return;
 
-        if (e.key.toLowerCase() === 'm') {
-            e.stopImmediatePropagation();
-            e.preventDefault();
-            v.muted = !v.muted;
-        }
-    };
-
-    const actualizarBarra = () => {
-        const preview = document.querySelector('ytd-video-preview');
-        if (!preview || preview.style.display === 'none') return;
-        const v = preview.querySelector('video');
-        if (!v) return;
-
-        let bar = preview.querySelector('.yt-pops-bar-mini');
-        if (!bar) {
-            bar = document.createElement('div');
-            bar.className = 'yt-pops-bar-mini';
-            preview.appendChild(bar);
-        }
-
-        const estado = v.muted ? "MUTEADO (M)" : "SONIDO (M)";
-        bar.innerHTML = `<div class="mute-btn-style">${estado}</div>`;
-    };
-
-    // --- 3. ROE 8X Y BOTÓN 🔳 ---
-    const motorGlobal = () => {
-        const v = document.querySelector('video');
-        if (!v || v.closest('ytd-video-preview')) return;
-        const ad = document.querySelector('.ad-showing, .ytp-ad-player-overlay');
-        if (ad && !modoAdActivo) {
-            modoAdActivo = true; v.muted = true; v.playbackRate = 8.0;
-        } else if (!ad && modoAdActivo) {
-            modoAdActivo = false; v.playbackRate = 1.0;
-        }
-    };
-
-    const inyectarBoton = () => {
-        if (document.getElementById('btn-pops-pip') || !window.location.pathname.includes('/watch')) return;
-        const controls = document.querySelector('.ytp-right-controls');
-        if (controls) {
-            const btn = document.createElement('button');
-            btn.id = 'btn-pops-pip'; btn.innerHTML = '🔳';
-            Object.assign(btn.style, { background: 'none', border: 'none', cursor: 'pointer', color: 'white', fontSize: '18px', padding: '0 8px' });
-            btn.onclick = () => {
-                const mainV = document.querySelector('video');
-                if (document.pictureInPictureElement) document.exitPictureInPicture();
-                else mainV.requestPictureInPicture();
+        // 1. BOTÓN ROBO DE VIDEO (ROE)
+        if (!document.getElementById('btn-roe-player')) {
+            const btnRoe = document.createElement('button');
+            btnRoe.id = 'btn-roe-player';
+            btnRoe.className = 'ytp-button ext-player-btn' + (config.roeManual ? ' active' : '');
+            btnRoe.innerText = 'ROBO';
+            btnRoe.title = 'Activar/Desactivar Robo de Video (ROE)';
+            btnRoe.onclick = () => {
+                config.roeManual = !config.roeManual;
+                btnRoe.classList.toggle('active', config.roeManual);
             };
-            controls.prepend(btn);
+            controlesDerecha.prepend(btnRoe);
+        }
+
+        // 2. BOTÓN PAUSA INTELIGENTE (FOCUS)
+        if (!document.getElementById('btn-focus-player')) {
+            const btnFocus = document.createElement('button');
+            btnFocus.id = 'btn-focus-player';
+            btnFocus.className = 'ytp-button ext-player-btn' + (config.focusMode ? ' active' : '');
+            btnFocus.innerText = 'FOCUS';
+            btnFocus.title = 'Pausa Inteligente al previsualizar';
+            btnFocus.onclick = () => {
+                config.focusMode = !config.focusMode;
+                btnFocus.classList.toggle('active', config.focusMode);
+            };
+            controlesDerecha.prepend(btnFocus);
         }
     };
 
-    // --- 4. LANZAMIENTO ---
-    inyectarCSS();
-    window.addEventListener('keydown', manejarAudio, true);
+    const motorLogica = () => {
+        const v = document.querySelector('video.html5-main-video');
+        if (!v) return;
+
+        // ROBO DE VIDEO (Aceleración)
+        if (config.roeManual) {
+            const ad = document.querySelector('.ad-showing, .ytp-ad-player-overlay');
+            if (ad) {
+                v.playbackRate = 8.0; v.muted = true; config.modoAd = true;
+            } else if (config.modoAd) {
+                v.playbackRate = 1.0; v.muted = false; config.modoAd = false;
+            }
+        }
+
+        // PAUSA INTELIGENTE
+        if (config.focusMode && window.location.pathname.includes('/watch')) {
+            const p = document.querySelector('ytd-video-preview');
+            const isHover = (p && p.style.display !== 'none');
+            if (isHover && !v.paused) v.pause();
+            else if (!isHover && v.paused) v.play();
+        }
+    };
+
+    // Bucle de alta frecuencia para combatir la limpieza de YouTube
     setInterval(() => {
-        actualizarBarra();
-        motorGlobal();
-        inyectarBoton();
-    }, 300);
+        const esWatch = window.location.pathname.includes('/watch');
+        document.body.setAttribute('mode', esWatch ? 'watch' : 'home');
+
+        if (esWatch) {
+            inyectarCSS();
+            inyectarEnReproductor();
+            motorLogica();
+        }
+        
+        // Bloqueo de subtítulos en previsualización
+        const pV = document.querySelector('ytd-video-preview video');
+        if (pV && pV.textTracks) {
+            for (let i = 0; i < pV.textTracks.length; i++) pV.textTracks[i].mode = 'disabled';
+        }
+    }, 400);
 })();
