@@ -25,14 +25,14 @@
 <br />
 
 # Browser Extension Optimization Pro 🧩
-Updated with **Twitch Anti-Ads Bridge**, **RAM Saver**, **Audio Focus**, and **Settings Persistence**.
+Updated with **Twitch Anti-Ads Bridge (New)**, **RAM Saver (New)**, and **Audio Focus (New)**.
 
 ### ✨ Key Features
 * 🛡️ **Security Shield:** Detects insecure websites and warns about inadequate encryption.
 * 🚀 **Efficiency:** Ad-Robo engine accelerates ads by 16x.
-* 🌉 **Twitch Bridge:** Automatic PiP "Bridge" that skips ads without missing the stream content.
-* 🧠 **RAM Saver:** Suspends inactive background tabs to optimize memory.
-* 🔊 **Audio Focus:** Ensures only one video plays at a time.
+* 🌉 **(New) Twitch Bridge:** Automatic PiP "Bridge" during ads.
+* 🧠 **(New) RAM Saver:** Suspends inactive background logic to optimize memory.
+* 🔊 **(New) Audio Focus:** Automatically pauses other videos.
 
 </details>
 
@@ -41,13 +41,13 @@ Updated with **Twitch Anti-Ads Bridge**, **RAM Saver**, **Audio Focus**, and **S
 <br />
 
 # Оптимизация расширения браузера 🧩
-Обновлено с помощью **Twitch Anti-Ads Bridge**, **RAM Saver** и **Audio Focus**.
+Обновлено: **Twitch Anti-Ads Bridge (New)**, **RAM Saver (New)** и **Audio Focus (New)**.
 
 ### ✨ Основные характеристики
 * 🛡️ **Щит безопасности:** Обнаруживает небезопасные сайты.
 * 🚀 **Эффективность:** Движок Ad-Robo ускоряет рекламу в 16 раз.
-* 🌉 **Twitch мост:** Автоматический режим PiP во время рекламы на Twitch.
-* 🧠 **Экономия оперативной памяти:** Оптимизирует неактивные вкладки.
+* 🌉 **(New) Twitch мост:** Автоматический PiP во время рекламы.
+* 🧠 **(New) Экономия ОЗУ:** Оптимизирует неактивные вкладки.
 
 </details>
 
@@ -56,13 +56,13 @@ Updated with **Twitch Anti-Ads Bridge**, **RAM Saver**, **Audio Focus**, and **S
 <br />
 
 # 浏览器扩展优化 🧩
-已更新 **Twitch 广告自动跳过桥接**、**内存节省**和**音频焦点**。
+更新: **Twitch 广告自动跳过桥接 (New)**、**内存节省 (New)**和**音频焦点 (New)**。
 
 ### ✨ 主要特点
-* 🛡️ **安全盾:** 检测不安全的网站。
+* 🛡️ **安全盾:** 检测不安全的网站并警告加密不足。
 * 🚀 **高效率:** Ad-Robo 引擎可将广告速度提高 16 倍。
-* 🌉 **Twitch 桥接:** 广告期间自动开启画中画模式。
-* 🧠 **内存优化:** 挂起非活动的后台标签页。
+* 🌉 **(New) Twitch 桥接:** 广告期间自动开启画中画模式。
+* 🧠 **(New) 内存优化:** 挂起非活动的后台标签页。
 
 </details>
 
@@ -76,13 +76,17 @@ Esta extensión está siendo desarrollada con **React** para ofrecer una interfa
 ### ⚠️ Estado del Proyecto
 **El proyecto se encuentra en desarrollo en estado de Beta (v68.1).**
 
-### ✨ Características Principales (Actualizado)
-* **Puente Anti-Ads (Twitch):** Cuando se detecta un anuncio en Twitch, el sistema activa un "Puente de Video" mediante PiP automático, silenciando el anuncio en la pestaña principal y permitiendo al usuario no perder el hilo del directo.
-* **Ahorro de RAM Inteligente:** Gestiona las pestañas inactivas para liberar memoria del sistema, ideal para usuarios con muchas pestañas abiertas.
-* **Foco de Audio:** Sistema inteligente que detecta cuando inicias un video y pausa automáticamente cualquier otro video que se esté reproduciendo en otras pestañas.
-* **Persistencia de Configuración:** Las preferencias del usuario y el progreso del video (tiempo exacto) se guardan automáticamente para futuras sesiones.
-* **Diseño Camaleón:** La UI detecta si el sitio web está en modo oscuro o claro para adaptar sus colores, evitando destellos molestos durante la carga.
-* **Modo Cine:** Los controles se ocultan automáticamente al entrar en pantalla completa.
+### ✨ Características Principales
+
+* **(New) Puente Anti-Ads (Twitch):** Sistema inteligente que abre un "Puente de Video" en PiP al detectar un anuncio, silenciando la pestaña principal para no perder el hilo del directo.
+* **(New) Ahorro de RAM Inteligente:** Suspensión automática de la lógica en pestañas inactivas para optimizar el consumo de memoria del sistema.
+* **(New) Foco de Audio Pro:** Gestión de reproducción entre pestañas que pausa automáticamente otros videos cuando inicias uno nuevo.
+* **(New) Diseño Camaleón y Modo Cine:** Los iconos adaptan su color al tema del sitio (Claro/Oscuro) y la interfaz se oculta automáticamente en pantalla completa.
+* **(New) Persistencia de Sesión:** El sistema recuerda si activaste o desactivaste funciones y guarda el segundo exacto de los videos para retomarlos después.
+* **Motor de ROBO x16:** Aceleración automática de anuncios a velocidad máxima con silenciador (Mute) activo para minimizar interrupciones.
+* **Extractor Universal (PiP):** Soporte para modo "Imagen en Imagen" en cualquier plataforma con feedback visual (Botón Rojo) cuando está activo.
+* **Escudo de Seguridad:** Análisis en tiempo real del cifrado del sitio (HTTPS). Si el sitio es inseguro, se genera una alerta visual para proteger al usuario.
+* **Interfaz Dinámica Integrada:** Consola unificada construida con React que se inyecta directamente en los controles nativos de YouTube, Twitch y Kick.
 
 ### 🛠️ Tecnologías Utilizadas
 * **React.js:** Lógica de componentes y UI.
@@ -90,25 +94,23 @@ Esta extensión está siendo desarrollada con **React** para ofrecer una interfa
 * **Manifest V3:** Estándar de seguridad de última generación.
 
 ### 🏗️ Estado del Desarrollo
-Actualmente el proyecto se encuentra en fase de **Desarrollo Activo (Beta)**, manteniendo todas las funcionalidades previas y expandiendo la automatización.
+Actualmente el proyecto se encuentra en fase de **Desarrollo Activo (Beta)**:
 
-- [x] **Estructura base:** Arquitectura inicial y manifiesto V3.
-- [x] **Interfaz Pro:** Implementación de la UI principal en la barra de controles (YouTube, Twitch, Kick).
-- [x] **Motor de ROBO:** Aceleración automática de anuncios (x16) y Mute inteligente.
-- [x] **Universal Extractor:** Función de extracción de video (PiP) con sincronización de estado visual (Feedback Rojo).
-- [x] **Escudo de Seguridad:** Detección de cifrado inadecuado (HTTP) con alertas visuales.
-- [x] **Puente Anti-Ads (Twitch):** Gestión automática de anuncios mediante PiP y aceleración.
-- [x] **Optimización de Sistema:** Ahorro de RAM y Foco de Audio entre pestañas.
-- [x] **Persistencia:** Guardado de configuración de usuario y restauración de tiempo de video.
-- [x] **Diseño Adaptativo:** Modo cine y ajuste automático de color (Claro/Oscuro).
+- [x] **Estructura base:** Arquitectura inicial del proyecto y Manifest V3.
+- [x] **Interfaz en barra de controles:** Inyección exitosa en YouTube, Twitch y Kick.
+- [x] **Motor de "Robo":** Aceleración de anuncios (x16).
+- [x] **Función de extracción:** Universal PiP con sincronización de estado.
+- [x] **Detección de Seguridad:** Alerta de cifrado inadecuado (Security Shield).
+- [x] **(New) Puente Anti-Ads:** Lógica para anuncios de Twitch.
+- [x] **(New) Gestión de Recursos:** Ahorro de RAM y Foco de Audio.
+- [x] **(New) UI Inteligente:** Modo cine y colores adaptativos.
+- [x] **(New) Memoria Local:** Persistencia de configuración y tiempo.
 - [ ] **Conexión con APIs externas:** Sincronización de datos en la nube.
-- [ ] **Panel de Estadísticas:** Visualización de ahorro de tiempo y RAM para el usuario.
-- [ ] **Configuración Avanzada:** Menú popup para personalización de velocidades y filtros.
+- [ ] **Dashboard de Usuario:** Panel de estadísticas de ahorro.
+
 ---
 
 ## ⚙️ Instalación (Para Desarrolladores)
-
-Si quieres probar la extensión localmente:
 
 1. **Clona el repositorio:**
    ```bash
