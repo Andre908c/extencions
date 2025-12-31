@@ -1,17 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "Extractor Universal + Optimización Pro v67.6",
-  "version": "67.6",
-  "description": "Consola inteligente con corrección de PiP, persistencia de configuración, ahorro de RAM y Foco de Audio.",
+  "name": "Extractor Universal + Optimización Pro v68.1",
+  "version": "68.1",
+  "description": "Sistema de Puente PiP con notificaciones visuales adaptativas para Twitch.",
   "permissions": [
     "storage",
     "notifications",
     "tabs",
     "runtime"
   ],
-  "action": {
-    "default_popup": "popup.html"
-  },
+  "action": { "default_popup": "popup.html" },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -19,7 +17,5 @@
       "run_at": "document_idle"
     }
   ],
-  "host_permissions": [
-    "<all_urls>"
-  ]
+  "host_permissions": ["<all_urls>"]
 }
